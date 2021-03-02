@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<LogIn_Test.Models.PM_vw_InspectorView>
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12" >
         <div class="panel panel-primary list-panel" id="list-panel">
             <div class="panel-heading list-panel-heading">
                 <h1 class="panel-title list-panel-title">برنامه های انجام شده</h1>
@@ -22,14 +22,14 @@
                     <tbody>
                         @foreach (var Inspector in Model)
                         {
-                        <tr>
-                            <td>@Inspector.عنوان_برنامه</td>
-                            <td>@Inspector.مجری</td>
-                            <td>@Inspector.نوع_فعالیت</td>
-                            <td>@Inspector.نتیجه</td>
-                            <td>@Inspector.تاریخ_اعلام_نتیجه</td>
-                            <td>@Inspector.کاربر_ثبت_کننده_نتیجه</td>
-                        </tr>
+                            <tr>
+                                <td>@Inspector.عنوان_برنامه</td>
+                                <td>@Inspector.مجری</td>
+                                <td>@Inspector.نوع_فعالیت</td>
+                                <td>@Inspector.نتیجه</td>
+                                <td>@Inspector.تاریخ_اعلام_نتیجه</td>
+                                <td>@Inspector.کاربر_ثبت_کننده_نتیجه</td>
+                            </tr>
 
                         }
                     </tbody>
