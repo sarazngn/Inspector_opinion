@@ -71,5 +71,10 @@ namespace LogIn_Test.Controllers
             }
             
         }
+
+        public ActionResult Check()
+        {
+            return View();
+        }
     }
 }
