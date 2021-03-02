@@ -1,0 +1,41 @@
+﻿@model LogIn_Test.User
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using(Html.BeginForm("Login","Home",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    if(@ViewBag.message !=null)
+    {
+<div style="border:1px solid red">
+    @ViewBag.message
+</div>
+    }
+<table class="table table-hover">
+    <tr>
+        <td>@Html.LabelFor(a => a.Username)</td>
+        <td>@Html.TextBoxFor(a => a.Username)</td>
+        <td>@Html.ValidationMessageFor(a => a.Username)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(a => a.Password)</td>
+        <td>@Html.PasswordFor(a => a.Password)</td>
+        <td>@Html.ValidationMessageFor(a => a.Password)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="Submit" value="LogIn" class="btn-primary"/></td>
+        <td></td>
+    </tr>
+</table>
+}
+
+@section Scripts
+    {
+    @Scripts.Render("~/bundles/jqueryval")
+    }

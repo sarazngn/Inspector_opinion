@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PMModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PM.dbo.PM_vw_InspectorView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PM_vw_InspectorView">
+          <Key>
+            <PropertyRef Name="Sent_ID" />
+          </Key>
+          <Property Name="Sent_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PMs_Machines_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="عنوان برنامه" Type="nvarchar(max)" />
+          <Property Name="مجری" Type="nvarchar(max)" />
+          <Property Name="نوع فعالیت" Type="nvarchar(max)" />
+          <Property Name="نتیجه" Type="nvarchar" MaxLength="50" />
+          <Property Name="تاریخ اعلام نتیجه" Type="nvarchar" MaxLength="50" />
+          <Property Name="کاربر ثبت کننده نتیجه" Type="nvarchar" MaxLength="50" />
+          <Property Name="تاریخ ثبت نتیجه" Type="nvarchar" MaxLength="50" />
+          <Property Name="مقدار جدید" Type="nvarchar" MaxLength="50" />
+          <Property Name="آیا ریست شده" Type="nvarchar" MaxLength="50" />
+          <Property Name="توضیحات" Type="nvarchar(max)" />
+          <Property Name="نام ماشین" Type="nvarchar(max)" />
+          <Property Name="کد ماشین" Type="nvarchar" MaxLength="50" />
+          <Property Name="مشخصه تکمیلی ماشین" Type="nvarchar(max)" />
+          <Property Name="کد ماشین اولین سطح" Type="nvarchar" MaxLength="50" />
+          <Property Name="نام ماشین اولین سطح" Type="nvarchar(max)" />
+          <Property Name="مشخصه تکمیلی ماشین اولین سطح" Type="nvarchar(max)" />
+          <Property Name="کارگاه" Type="nvarchar(max)" />
+          <Property Name="آخرین مقدار" Type="int" />
+          <Property Name="واحد مقدار" Type="nvarchar" MaxLength="50" />
+          <Property Name="عدم تائید توسط برنامه ریزی تعمیرات" Type="bit" />
+          <Property Name="کاربر برنامه ریزی تعمیرات" Type="nvarchar" MaxLength="50" />
+          <Property Name="تاریخ ثبت نظر" Type="nvarchar" MaxLength="50" />
+          <Property Name="نظر بازرس" Type="bit" />
+          <Property Name="کاربر بازرس" Type="nvarchar" MaxLength="50" />
+          <Property Name="تاریخ ثبت نظر بازرس" Type="nvarchar" MaxLength="50" />
+          <Property Name="توضیحات بازرس" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="PMModel1StoreContainer">
+          <EntitySet Name="PM_vw_InspectorView" EntityType="Self.PM_vw_InspectorView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[PM_vw_InspectorView].[Sent_ID] AS [Sent_ID], 
+[PM_vw_InspectorView].[PMs_Machines_ID] AS [PMs_Machines_ID], 
+[PM_vw_InspectorView].[عنوان برنامه] AS [عنوان برنامه], 
+[PM_vw_InspectorView].[مجری] AS [مجری], 
+[PM_vw_InspectorView].[نوع فعالیت] AS [نوع فعالیت], 
+[PM_vw_InspectorView].[نتیجه] AS [نتیجه], 
+[PM_vw_InspectorView].[تاریخ اعلام نتیجه] AS [تاریخ اعلام نتیجه], 
+[PM_vw_InspectorView].[کاربر ثبت کننده نتیجه] AS [کاربر ثبت کننده نتیجه], 
+[PM_vw_InspectorView].[تاریخ ثبت نتیجه] AS [تاریخ ثبت نتیجه], 
+[PM_vw_InspectorView].[مقدار جدید] AS [مقدار جدید], 
+[PM_vw_InspectorView].[آیا ریست شده] AS [آیا ریست شده], 
+[PM_vw_InspectorView].[توضیحات] AS [توضیحات], 
+[PM_vw_InspectorView].[نام ماشین] AS [نام ماشین], 
+[PM_vw_InspectorView].[کد ماشین] AS [کد ماشین], 
+[PM_vw_InspectorView].[مشخصه تکمیلی ماشین] AS [مشخصه تکمیلی ماشین], 
+[PM_vw_InspectorView].[کد ماشین اولین سطح] AS [کد ماشین اولین سطح], 
+[PM_vw_InspectorView].[نام ماشین اولین سطح] AS [نام ماشین اولین سطح], 
+[PM_vw_InspectorView].[مشخصه تکمیلی ماشین اولین سطح] AS [مشخصه تکمیلی ماشین اولین سطح], 
+[PM_vw_InspectorView].[کارگاه] AS [کارگاه], 
+[PM_vw_InspectorView].[آخرین مقدار] AS [آخرین مقدار], 
+[PM_vw_InspectorView].[واحد مقدار] AS [واحد مقدار], 
+[PM_vw_InspectorView].[عدم تائید توسط برنامه ریزی تعمیرات] AS [عدم تائید توسط برنامه ریزی تعمیرات], 
+[PM_vw_InspectorView].[کاربر برنامه ریزی تعمیرات] AS [کاربر برنامه ریزی تعمیرات], 
+[PM_vw_InspectorView].[تاریخ ثبت نظر] AS [تاریخ ثبت نظر], 
+[PM_vw_InspectorView].[نظر بازرس] AS [نظر بازرس], 
+[PM_vw_InspectorView].[کاربر بازرس] AS [کاربر بازرس], 
+[PM_vw_InspectorView].[تاریخ ثبت نظر بازرس] AS [تاریخ ثبت نظر بازرس], 
+[PM_vw_InspectorView].[توضیحات بازرس] AS [توضیحات بازرس]
+FROM [dbo].[PM_vw_InspectorView] AS [PM_vw_InspectorView]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PMModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PM_vw_InspectorView">
+          <Key>
+            <PropertyRef Name="Sent_ID" />
+          </Key>
+          <Property Name="Sent_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PMs_Machines_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="عنوان_برنامه" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="مجری" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="نوع_فعالیت" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="نتیجه" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="تاریخ_اعلام_نتیجه" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="کاربر_ثبت_کننده_نتیجه" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="تاریخ_ثبت_نتیجه" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="مقدار_جدید" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="آیا_ریست_شده" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="توضیحات" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="نام_ماشین" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="کد_ماشین" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="مشخصه_تکمیلی_ماشین" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="کد_ماشین_اولین_سطح" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="نام_ماشین_اولین_سطح" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="مشخصه_تکمیلی_ماشین_اولین_سطح" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="کارگاه" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="آخرین_مقدار" Type="Int32" />
+          <Property Name="واحد_مقدار" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="عدم_تائید_توسط_برنامه_ریزی_تعمیرات" Type="Boolean" />
+          <Property Name="کاربر_برنامه_ریزی_تعمیرات" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="تاریخ_ثبت_نظر" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="نظر_بازرس" Type="Boolean" />
+          <Property Name="کاربر_بازرس" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="تاریخ_ثبت_نظر_بازرس" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="توضیحات_بازرس" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="PMEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PM_vw_InspectorView" EntityType="Self.PM_vw_InspectorView" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PMModel1StoreContainer" CdmEntityContainer="PMEntities1">
+          <EntitySetMapping Name="PM_vw_InspectorView">
+            <EntityTypeMapping TypeName="PMModel1.PM_vw_InspectorView">
+              <MappingFragment StoreEntitySet="PM_vw_InspectorView">
+                <ScalarProperty Name="Sent_ID" ColumnName="Sent_ID" />
+                <ScalarProperty Name="PMs_Machines_ID" ColumnName="PMs_Machines_ID" />
+                <ScalarProperty Name="عنوان_برنامه" ColumnName="عنوان برنامه" />
+                <ScalarProperty Name="مجری" ColumnName="مجری" />
+                <ScalarProperty Name="نوع_فعالیت" ColumnName="نوع فعالیت" />
+                <ScalarProperty Name="نتیجه" ColumnName="نتیجه" />
+                <ScalarProperty Name="تاریخ_اعلام_نتیجه" ColumnName="تاریخ اعلام نتیجه" />
+                <ScalarProperty Name="کاربر_ثبت_کننده_نتیجه" ColumnName="کاربر ثبت کننده نتیجه" />
+                <ScalarProperty Name="تاریخ_ثبت_نتیجه" ColumnName="تاریخ ثبت نتیجه" />
+                <ScalarProperty Name="مقدار_جدید" ColumnName="مقدار جدید" />
+                <ScalarProperty Name="آیا_ریست_شده" ColumnName="آیا ریست شده" />
+                <ScalarProperty Name="توضیحات" ColumnName="توضیحات" />
+                <ScalarProperty Name="نام_ماشین" ColumnName="نام ماشین" />
+                <ScalarProperty Name="کد_ماشین" ColumnName="کد ماشین" />
+                <ScalarProperty Name="مشخصه_تکمیلی_ماشین" ColumnName="مشخصه تکمیلی ماشین" />
+                <ScalarProperty Name="کد_ماشین_اولین_سطح" ColumnName="کد ماشین اولین سطح" />
+                <ScalarProperty Name="نام_ماشین_اولین_سطح" ColumnName="نام ماشین اولین سطح" />
+                <ScalarProperty Name="مشخصه_تکمیلی_ماشین_اولین_سطح" ColumnName="مشخصه تکمیلی ماشین اولین سطح" />
+                <ScalarProperty Name="کارگاه" ColumnName="کارگاه" />
+                <ScalarProperty Name="آخرین_مقدار" ColumnName="آخرین مقدار" />
+                <ScalarProperty Name="واحد_مقدار" ColumnName="واحد مقدار" />
+                <ScalarProperty Name="عدم_تائید_توسط_برنامه_ریزی_تعمیرات" ColumnName="عدم تائید توسط برنامه ریزی تعمیرات" />
+                <ScalarProperty Name="کاربر_برنامه_ریزی_تعمیرات" ColumnName="کاربر برنامه ریزی تعمیرات" />
+                <ScalarProperty Name="تاریخ_ثبت_نظر" ColumnName="تاریخ ثبت نظر" />
+                <ScalarProperty Name="نظر_بازرس" ColumnName="نظر بازرس" />
+                <ScalarProperty Name="کاربر_بازرس" ColumnName="کاربر بازرس" />
+                <ScalarProperty Name="تاریخ_ثبت_نظر_بازرس" ColumnName="تاریخ ثبت نظر بازرس" />
+                <ScalarProperty Name="توضیحات_بازرس" ColumnName="توضیحات بازرس" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
