@@ -16,20 +16,63 @@
                             <th>نتیجه</th>
                             <th>تاریخ_اعلام_نتیجه</th>
                             <th>کاربر_ثبت_کننده_نتیجه</th>
+                            <th>تاریخ_ثبت_نتیجه</th>
+                            <th>مقدار_جدید</th>
+                            <th>آیا_ریست_شده</th>
+                            <th>توضیحات</th>
+                            <th>نام_ماشین</th>
+                            <th>کد_ماشین</th>
+                            <th>مشخصه_تکمیلی_ماشین</th>
+                            <th>کد_ماشین_اولین_سطح</th>
+                            <th>نام_ماشین_اولین_سطح</th>
+                            <th>مشخصه_تکمیلی_ماشین_اولین_سطح</th>
+                            <th>کارگاه</th>
+                            <th>آخرین_مقدار</th>
+                            <th>واحد_مقدار</th>
+                            <th>عدم_تائید_توسط_برنامه_ریزی_تعمیرات</th>
+                            <th>کاربر_برنامه_ریزی_تعمیرات</th>
+                            <th>تاریخ_ثبت_نظر</th>
+                            <th>نظر_بازرس</th>
+                            <th>کاربر_بازرس</th>
+                            <th>تاریخ_ثبت_نظر_بازرس</th>
+                            <th>توضیحات_بازرس</th>
+
 
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var Inspector in Model)
                         {
-                            <tr>
-                                <td>@Inspector.عنوان_برنامه</td>
-                                <td>@Inspector.مجری</td>
-                                <td>@Inspector.نوع_فعالیت</td>
-                                <td>@Inspector.نتیجه</td>
-                                <td>@Inspector.تاریخ_اعلام_نتیجه</td>
-                                <td>@Inspector.کاربر_ثبت_کننده_نتیجه</td>
-                            </tr>
+                        <tr>
+                            <td>@Inspector.عنوان_برنامه</td>
+                            <td>@Inspector.مجری</td>
+                            <td>@Inspector.نوع_فعالیت</td>
+                            <td>@Inspector.نتیجه</td>
+                            <td>@Inspector.تاریخ_اعلام_نتیجه</td>
+                            <td>@Inspector.کاربر_ثبت_کننده_نتیجه</td>
+                            <td>@Inspector.تاریخ_اعلام_نتیجه</td>
+                            <td>@Inspector.مقدار_جدید</td>
+                            <td>@Inspector.آیا_ریست_شده</td>
+                            <td>@Inspector.توضیحات</td>
+                            <td>@Inspector.نام_ماشین</td>
+                            <td>@Inspector.کد_ماشین</td>
+                            <td>@Inspector.مشخصه_تکمیلی_ماشین</td>
+                            <td>@Inspector.کد_ماشین_اولین_سطح</td>
+                            <td>@Inspector.نام_ماشین_اولین_سطح</td>
+                            <td>@Inspector.مشخصه_تکمیلی_ماشین_اولین_سطح</td>
+                            <td>@Inspector.کارگاه</td>
+                            <td>@Inspector.آخرین_مقدار</td>
+                            <td>@Inspector.واحد_مقدار</td>
+                            <td>@Inspector.عدم_تائید_توسط_برنامه_ریزی_تعمیرات</td>
+                            <td>@Inspector.کاربر_برنامه_ریزی_تعمیرات</td>
+                            <td>@Inspector.تاریخ_ثبت_نظر</td>
+                            <td>@Inspector.نظر_بازرس</td>
+                            <td>@Inspector.کاربر_بازرس</td>
+                            <td>@Inspector.تاریخ_ثبت_نظر_بازرس</td>
+                            <td>@Inspector.توضیحات_بازرس</td>
+
+
+                        </tr>
 
                         }
                     </tbody>
