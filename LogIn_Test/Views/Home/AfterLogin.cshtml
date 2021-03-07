@@ -44,9 +44,9 @@
                 </legend>
                 <br /><br />
                 @Html.Label("OpinionLabel", "تائید", new { style = "float:right;margin-right: 10px"})
-                @Html.RadioButton("Opinion", "Yes",new { @checked = "checked" , style = "float:right" } )
+                @Html.RadioButton("Opinion", "1",new { @checked = "checked" , style = "float:right" } )
                 @Html.Label("OpinionLabel", "عدم تائید", new { style = "float:right;margin-right: 20px" })
-                @Html.RadioButton("Opinion", "No", new { style = "float:right" })
+                @Html.RadioButton("Opinion", "0", new { style = "float:right" })
                 @Html.Label("Desc", "توضیحات", new { style = "float:right;margin-top;margin-right: 50px" })
                 @Html.TextArea("Description", new { style = "float:right;margin-top;margin-left: 10px;width=1000px" })
                 <button type="submit" value="Delete" style="margin-left: 10px;font-family:IRANSans,garamond,serif;font-size:14px" class="btn btn-sm btn-info rounded-0" onclick="GetSelected()"><i class="fa fa-trash-o"></i> ثبت</button>
@@ -135,28 +135,38 @@
         function GetSelected() {
             //Reference the Table.
             var grid = document.getElementById("example");
-        var notyf = new Notyf();
+            var notyf = new Notyf({position: {x: 'right', y: 'top', }});
             //Reference the CheckBoxes in Table.
             var checkBoxes = grid.getElementsByTagName("INPUT");
-            var message = "Id  Name                  Country\n";
             var selectedOrderTypeVal = $('[name=Opinion]:checked').val();
             var array = []
             //Loop through the CheckBoxes.
             for (var i = 1; i < checkBoxes.length; i++) {
                 if (checkBoxes[i].checked) {
                     var row = checkBoxes[i].parentNode.parentNode;
-                    message += row.cells[2].innerHTML;
-                    message += "   " + row.cells[3].innerHTML;
-                    message += "\n";
                     array.push(row.cells[2].innerHTML);
                 }
             }
 
             if (array.length == 0) { notyf.error('برنامه ای برای ثبت نظر انتخاب نشده است'); }
-            else {notyf.success(message + " " + Description.value + " " + selectedOrderTypeVal + " " + array.length);}
-            
-            
+            else {//فراخوانی وب سرویس
+                //notyf.success(Description.value + " " + selectedOrderTypeVal + " " + array.length);
+                CallWebService();
+            }
     }
+
+        function CallWebService() {
+        $.ajax({  
+            type: "POST",  
+            url: "https://localhost:44310/PM_Results/PM_InspectorOpenion/SavePMInspector",  
+            data: "{'Description':'selectedOrderTypeVal':'array'}",  
+            contentType: "application/json",  
+            datatype: "json",  
+            success: function(responseFromServer) {  
+                alert(responseFromServer.d)  
+            }  
+        });  
+};  
 
 
     $(document).ready(function () {
