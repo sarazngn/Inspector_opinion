@@ -368,10 +368,10 @@
       <LastGenOutput>MyModel.cs</LastGenOutput>
     </Content>
     <Content Include="Content\Themes\responsive.dataTables.min.css" />
-    <Content Include="Scripts\responsive\dataTables.responsive.min.js" />
+    <Content Include="Scripts\dataTables.responsive.min.js" />
     <Content Include="Scripts\responsive\jquery-1.11.3.min.js" />
-    <Content Include="Scripts\responsive\jquery-3.5.1.js" />
-    <Content Include="Scripts\responsive\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\responsive\jquery.min.js" />
     <Content Include="Scripts\responsive\stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js" />
     <Content Include="Scripts\bootstrap.js" />
