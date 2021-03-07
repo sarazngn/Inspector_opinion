@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PMModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PMModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
 warning 6002: The table/view 'PM.dbo.PM_vw_InspectorView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="PM_vw_InspectorView">
@@ -39,6 +39,9 @@ warning 6002: The table/view 'PM.dbo.PM_vw_InspectorView' does not have a primar
           <Property Name="کاربر بازرس" Type="nvarchar" MaxLength="50" />
           <Property Name="تاریخ ثبت نظر بازرس" Type="nvarchar" MaxLength="50" />
           <Property Name="توضیحات بازرس" Type="nvarchar(max)" />
+          <Property Name="شماره تیکت" Type="nvarchar" MaxLength="50" />
+          <Property Name="محل استقرار" Type="nvarchar(max)" />
+          <Property Name="زمان مناسب انجام کار" Type="nvarchar(max)" />
         </EntityType>
         <EntityContainer Name="PMModel1StoreContainer">
           <EntitySet Name="PM_vw_InspectorView" EntityType="Self.PM_vw_InspectorView" store:Type="Views" store:Schema="dbo">
@@ -70,12 +73,14 @@ warning 6002: The table/view 'PM.dbo.PM_vw_InspectorView' does not have a primar
 [PM_vw_InspectorView].[نظر بازرس] AS [نظر بازرس], 
 [PM_vw_InspectorView].[کاربر بازرس] AS [کاربر بازرس], 
 [PM_vw_InspectorView].[تاریخ ثبت نظر بازرس] AS [تاریخ ثبت نظر بازرس], 
-[PM_vw_InspectorView].[توضیحات بازرس] AS [توضیحات بازرس]
+[PM_vw_InspectorView].[توضیحات بازرس] AS [توضیحات بازرس], 
+[PM_vw_InspectorView].[شماره تیکت] AS [شماره تیکت], 
+[PM_vw_InspectorView].[محل استقرار] AS [محل استقرار], 
+[PM_vw_InspectorView].[زمان مناسب انجام کار] AS [زمان مناسب انجام کار]
 FROM [dbo].[PM_vw_InspectorView] AS [PM_vw_InspectorView]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PMModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -111,6 +116,9 @@ FROM [dbo].[PM_vw_InspectorView] AS [PM_vw_InspectorView]</DefiningQuery>
           <Property Name="کاربر_بازرس" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="تاریخ_ثبت_نظر_بازرس" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="توضیحات_بازرس" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="شماره_تیکت" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="محل_استقرار" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="زمان_مناسب_انجام_کار" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="PMEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="PM_vw_InspectorView" EntityType="Self.PM_vw_InspectorView" />
@@ -124,6 +132,9 @@ FROM [dbo].[PM_vw_InspectorView] AS [PM_vw_InspectorView]</DefiningQuery>
           <EntitySetMapping Name="PM_vw_InspectorView">
             <EntityTypeMapping TypeName="PMModel1.PM_vw_InspectorView">
               <MappingFragment StoreEntitySet="PM_vw_InspectorView">
+                <ScalarProperty Name="زمان_مناسب_انجام_کار" ColumnName="زمان مناسب انجام کار" />
+                <ScalarProperty Name="محل_استقرار" ColumnName="محل استقرار" />
+                <ScalarProperty Name="شماره_تیکت" ColumnName="شماره تیکت" />
                 <ScalarProperty Name="Sent_ID" ColumnName="Sent_ID" />
                 <ScalarProperty Name="PMs_Machines_ID" ColumnName="PMs_Machines_ID" />
                 <ScalarProperty Name="عنوان_برنامه" ColumnName="عنوان برنامه" />

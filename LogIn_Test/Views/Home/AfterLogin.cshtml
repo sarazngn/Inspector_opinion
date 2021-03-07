@@ -1,84 +1,88 @@
-﻿@model IEnumerable<LogIn_Test.Models.PM_vw_InspectorView>
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
 <html dir="rtl">
-<style dir="rtl"; style="float:right">
-    
-    fieldset {
-        background-color: #eeeeee;
-    }
+<head>
 
-    legend {
-        background-color: gray;
-        color: white;
-        padding: 5px 10px;
-    }
+    <link rel="stylesheet" type="text/css" href="~/Content/Themes/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Themes/responsive.dataTables.min.css">
+    <style type="text/css" class="init">
+    </style>
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
 
-    input {
-        margin: 5px;
-    }
-</style>
+</head>
+<body class="wide comments example">
+    <a name="top" id="top"></a>
+    <div class="fw-background">
+        <fieldset>
+            <legend">
+                </legend>
+                <br /><br />
+                @Html.Label("Opinion", "تائید", new { style = "float:right;margin-right: 10px" })
+                @Html.RadioButton("Opinion", "Yes", new { style = "float:right" })
+                @Html.Label("Opinion", "عدم تائید", new { style = "float:right;margin-right: 20px" })
+                @Html.RadioButton("Opinion", "No", new { style = "float:right" })
+                @Html.Label("Desc", "توضیحات", new { style = "float:right;margin-top;margin-right: 50px" })
+                @Html.TextArea("Desc", new { style = "float:right;margin-top;width=1000px" })
+                <button type="submit" value="Delete" style="margin-left: 20px" class="btn btn-sm btn-info rounded-0" onclick="GetSelected()"><i class="fa fa-trash-o"></i> ثبت</button>
+                <br /><br />
+        </fieldset>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel panel-primary list-panel" id="list-panel">
-            <div class="panel-heading list-panel-heading">
-                <h3 class="panel-title list-panel-title">اعلام نظر بازرس برروی برنامه های انجام شده</h3>
-            </div>
-            <br />
-            <div class="panel-body">
-                <fieldset>
-                    <legend">
-                        </legend>
-                        <br /><br />
-                        @Html.Label("Opinion", "تائید", new { style = "float:right;margin-right: 10px" })
-                        @Html.RadioButton("Opinion", "Yes", new { style = "float:right" })
-                        @Html.Label("Opinion", "عدم تائید", new { style = "float:right;margin-right: 20px" })
-                        @Html.RadioButton("Opinion", "No", new { style = "float:right" })
-                        @Html.Label("Desc", "توضیحات", new { style = "float:right;margin-top;margin-right: 50px" })
-                        <textarea name="Desc" rows="2" cols="2000" dir="rtl" style="float:right;width=1000px" ;></textarea><br />
-                        <button type="submit" value="Delete" style="margin-left: 20px" class="btn btn-sm btn-info rounded-0" onclick="GetSelected()"><i class="fa fa-trash-o"></i> ثبت</button>
-                        <br /><br />
-                </fieldset>
+        <div></div>
+    </div>
+    <div class="fw-container">
+        <div class="fw-body">
+            <div class="content">
+                <h1 class="page_title">Column controlled child rows</h1>
 
-
-
-                <table id="InspectorView-data-table" class="table table-striped table-bordered" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th><input type="checkbox" id="checkBoxAll" class="custom-checkbox" onclick="for(c in document.getElementsByName('ID')) document.getElementsByName('ID').item(c).checked = this.checked" /></th>
-                            <th style="display:none">ردیف</th>
-                            <th>عنوان_برنامه</th>
-                            <th>مجری</th>
-                            <th>نوع_فعالیت</th>
-                            <th>نتیجه</th>
-                            <th>تاریخ_اعلام_نتیجه</th>
-                            <th>کاربر_ثبت_کننده_نتیجه</th>
-                            <th>تاریخ_ثبت_نتیجه</th>
-                            <th>مقدار_جدید</th>
-                            <th>آیا_ریست_شده</th>
-                            <th>توضیحات</th>
-                            <th>نام_ماشین</th>
-                            <th>کد_ماشین</th>
-                            <th>کارگاه</th>
-                            <th>آخرین_مقدار</th>
-                            <th>واحد_مقدار</th>
-                            <th>نظر_بازرس</th>
-                            <th>کاربر_بازرس</th>
-                            <th>تاریخ_ثبت_نظر_بازرس</th>
-                            <th>توضیحات_بازرس</th>
-
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var Inspector in Model)
-                        {
+                <div class="demo-html">
+                    <table id="example" class="display nowrap" style="width:100%">
+                        <thead>
                             <tr>
+                                <th></th>
+                                <th><input type="checkbox" id="checkBoxAll" class="custom-checkbox" onclick="for(c in document.getElementsByName('ID')) document.getElementsByName('ID').item(c).checked = this.checked" /></th>
+                                <th style="display:none">ردیف</th>
+                                <th>شماره تیکت</th>
+                                <th>عنوان_برنامه</th>
+                                <th>مجری</th>
+                                <th>نوع_فعالیت</th>
+                                <th>زمان_مناسب_انجام_کار</th>
+                                <th>نتیجه</th>
+                                <th>تاریخ_اعلام_نتیجه</th>
+                                <th>کاربر_ثبت_کننده_نتیجه</th>
+                                <th>تاریخ_ثبت_نتیجه</th>
+                                <th>مقدار_جدید</th>
+                                <th>آیا_ریست_شده</th>
+                                <th>توضیحات</th>
+                                <th>نام_ماشین</th>
+                                <th>کد_ماشین</th>
+                                <th>کارگاه</th>
+                                <th>محل استقرار</th>
+                                <th>آخرین_مقدار</th>
+                                <th>واحد_مقدار</th>
+                                <th>نظر_بازرس</th>
+                                <th>کاربر_بازرس</th>
+                                <th>تاریخ_ثبت_نظر_بازرس</th>
+                                <th>توضیحات_بازرس</th>
 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var Inspector in Model)
+                            {
+                            <tr>
+                                <td></td>
                                 <td><input type="checkbox" name="ID" value="@Inspector.Sent_ID" class="custom-checkbox chkCheckBoxId" /></td>
                                 <td style="display:none">@Inspector.Sent_ID</td>
+                                <td>@Inspector.شماره_تیکت</td>
                                 <td>@Inspector.عنوان_برنامه</td>
                                 <td>@Inspector.مجری</td>
                                 <td>@Inspector.نوع_فعالیت</td>
+                                <td>@Inspector.زمان_مناسب_انجام_کار</td>
                                 <td>@Inspector.نتیجه</td>
                                 <td>@Inspector.تاریخ_اعلام_نتیجه</td>
                                 <td>@Inspector.کاربر_ثبت_کننده_نتیجه</td>
@@ -89,6 +93,7 @@
                                 <td>@Inspector.نام_ماشین</td>
                                 <td>@Inspector.کد_ماشین</td>
                                 <td>@Inspector.کارگاه</td>
+                                <td>@Inspector.محل_استقرار</td>
                                 <td>@Inspector.آخرین_مقدار</td>
                                 <td>@Inspector.واحد_مقدار</td>
                                 <td>@Inspector.نظر_بازرس</td>
@@ -98,47 +103,67 @@
 
 
                             </tr>
+                            }
+                            </tfoot>
+                    </table>
 
-                        }
-                    </tbody>
-                </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-@section Scripts
-{
-
     <script type="text/javascript">
+
+        function GetSelected() {
+                               //Reference the Table.
+                               var grid = document.getElementById("example");
+
+                               //Reference the CheckBoxes in Table.
+                               var checkBoxes = grid.getElementsByTagName("INPUT");
+                               var message = "Id  Name                  Country\n";
+
+                               //Loop through the CheckBoxes.
+                               for (var i = 0; i < checkBoxes.length; i++) {
+                                   if (checkBoxes[i].checked) {
+                                       var row = checkBoxes[i].parentNode.parentNode;
+                                       message += row.cells[1].innerHTML;
+                                       message += "   " + row.cells[2].innerHTML;
+                                       message += "   " + row.cells[3].innerHTML;
+                                       message += "\n";
+
+                                   }
+                               }
+
+                               //Display selected Row data in Alert Box.
+                               alert(message);
+                           }
+
+
         $(document).ready(function () {
+            $('#example').DataTable({
+                responsive: {
+                    details: {
+                        renderer: function (api, rowIdx, columns) {
+                            var data = $.map(columns, function (col, i) {
+                                return col.hidden ?
+                                    '<tr data-dt-row="' + col.rowIndex + '" data-dt-column="' + col.columnIndex + '">' +
+                                    '<td>' + col.title + ':' + '</td> ' +
+                                    '<td>' + col.data + '</td>' +
+                                    '</tr>' :
+                                    '';
+                            }).join('');
 
-            $('#InspectorView-data-table').DataTable();
+                            return data ?
+                                $('<table/>').append(data) :
+                                false;
+                        }
+                    }
+                }
+            });
         });
+
+
     </script>
+</body>
 
-}
-<script type="text/javascript">
-    function GetSelected() {
-        //Reference the Table.
-        var grid = document.getElementById("InspectorView-data-table");
 
-        //Reference the CheckBoxes in Table.
-        var checkBoxes = grid.getElementsByTagName("INPUT");
-        var message = "Id  Name                  Country\n";
-
-        //Loop through the CheckBoxes.
-        for (var i = 0; i < checkBoxes.length; i++) {
-            if (checkBoxes[i].checked) {
-                var row = checkBoxes[i].parentNode.parentNode;
-                message += row.cells[1].innerHTML;
-                message += "   " + row.cells[2].innerHTML;
-                message += "   " + row.cells[3].innerHTML;
-                message += "\n";
-            }
-        }
-
-        //Display selected Row data in Alert Box.
-        alert(message);
-    }
-</script>
+</html>

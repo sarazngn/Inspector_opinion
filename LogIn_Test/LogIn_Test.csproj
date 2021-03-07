@@ -136,6 +136,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\InspectorOpenion.cs" />
     <Compile Include="Models\InspectorView.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -154,6 +155,7 @@
     <Compile Include="Models\PM_vw_InspectorView.cs">
       <DependentUpon>InspectorView.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RequierdAttribute.cs" />
     <Compile Include="MyModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -337,6 +339,8 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\Themes\CardStyle.css" />
+    <Content Include="Content\Themes\jquery.dataTables.min.css" />
     <Content Include="Content\Themes\ui.multiselect.css" />
     <Content Include="Content\ui.jqgrid.css" />
     <Content Include="favicon.ico" />
@@ -363,6 +367,13 @@
       <DependentUpon>MyModel.edmx</DependentUpon>
       <LastGenOutput>MyModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Content\Themes\responsive.dataTables.min.css" />
+    <Content Include="Scripts\responsive\dataTables.responsive.min.js" />
+    <Content Include="Scripts\responsive\jquery-1.11.3.min.js" />
+    <Content Include="Scripts\responsive\jquery-3.5.1.js" />
+    <Content Include="Scripts\responsive\jquery.dataTables.min.js" />
+    <Content Include="Scripts\responsive\jquery.min.js" />
+    <Content Include="Scripts\responsive\stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="MyModel.edmx">
@@ -485,6 +496,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\AfterLogin.cshtml" />
+    <Content Include="Views\Home\Submit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

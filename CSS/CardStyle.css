@@ -1,0 +1,219 @@
+.wrapper {
+  padding: 40px;
+  --bg-color: #fafafa;
+  background-color: var(--bg-color);
+  max-width: 1024px;
+}
+/* gradient stroke */
+.card-gradient {
+  background-image: linear-gradient(to bottom, #fff, #CFCFCF);
+  padding: 1px;
+  border-radius: 4px;
+  box-shadow: -4px 4px 6px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 300ms linear, background-position 300ms linear;
+}
+.card-inner {
+  background-color: white;
+  border-radius: 4px;
+}
+/* to animate on hover only top of the card */
+.box-hover {
+  position: relative;
+}
+/* to hide border stroke where is folded corner */
+.box-hover::before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-top: 3px solid var(--bg-color);
+  border-right: 3px solid var(--bg-color);
+  top: -2px;
+  right: -2px;
+  width: 48px;
+  height: 48px;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.box-header {
+  background-color: #E2E2E2;
+  font-size: 20px;
+  line-height: 23px;
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  padding: 33px 30px 30px;
+  border-radius: 4px 4px 0 0;
+  z-index: 0;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: color 500ms ease;
+}
+/* circle on hover */
+.box-header::before {
+  content: '';
+  display: block;
+  width: 2px;
+  height: 2px;
+  position: absolute;
+  top: 49px;
+  left: 43px;
+  transform: scale(1);
+  transition: 400ms ease-in;
+  background-image: radial-gradient(circle, #69BE28 1px, transparent 1px, transparent 2px);
+  background-position: center;
+}
+
+.box-hover:hover .box-header::before,
+.box.selected .box-header::before {
+  transform: scale(300);
+}
+
+.box-label {
+  z-index: 1;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.box-hover:hover .box-label,
+.box.selected .box-label {
+  color: #fff;
+}
+/* Checkbox styles */
+input {
+  display: none;
+}
+
+.checkmark {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: #F3F3F3;
+  box-shadow: inset -4px 4px 4px rgba(0, 0, 0, 0.15);
+  vertical-align: middle;
+  margin-right: 14px;
+  color: #69BE28;
+  text-align: center;
+  padding-top: 3px;
+}
+
+input + .checkmark .icon-check {
+  opacity: 0;
+  transition: 350ms ease;
+}
+
+input:checked + .checkmark .icon-check {
+  opacity: 1;
+}
+
+.label {
+  line-height: 19px;
+  font-size: 24px;
+  background-blend-mode: darken;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+/* folded corner */
+.triangle {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--bg-color);
+  border-radius: 0 0 0 4px;
+}
+
+.triangle::before {
+  content: '';
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0 0 0 4px;
+  background-image: linear-gradient(55.62deg, #FFFFFF 26.5%, #ECECEC 61%);
+  z-index: 1;
+}
+
+.triangle::after {
+  content: '';
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0 0 0 4px;
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.001) 50%, var(--bg-color) 50%);
+  z-index: 1;
+}
+
+.triangle .shadow {
+  display: block;
+  transform-origin: left top;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  transform: rotate(-4deg);
+  top: 4px;
+  left: 1px;
+  border-radius: 4px;
+  background-color: #000;
+  opacity: 0.32;
+  filter: blur(2px);
+  transition: 300ms ease-in-out;
+}
+
+/**/
+.box .box-body {
+  padding: 32px 30px 16px;
+}
+
+.box-body .title {
+  font-size: 16px;
+  line-height: 19px;
+  color: #000;
+  opacity: 0.8;
+  margin-bottom: 14px;
+  letter-spacing: 0;
+  font-weight: normal;
+}
+
+.box-body .price {
+  text-align: right;
+  font-size: 24px;
+  line-height: 19px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.box-body .price .cur {
+   font-weight: 300;
+   font-size: 15px;
+   color: #A6A6A6;
+}
+
+.box-footer {
+  text-align: center;
+  padding: 25px 25px 24px;
+  transition: 350ms ease;
+}
+
+.box-footer .link {
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 21px;
+  color: #777;
+  border-bottom: 1px solid #FFDD00;
+  display: inline-block;
+}
+
+.box-footer:hover {
+  background-color: #FFDD00;
+}
+
+.box-footer:hover .link {
+  color: #000;
+}

@@ -42,5 +42,8 @@ namespace LogIn_Test.Models
         public string کاربر_بازرس { get; set; }
         public string تاریخ_ثبت_نظر_بازرس { get; set; }
         public string توضیحات_بازرس { get; set; }
+        public string شماره_تیکت { get; set; }
+        public string محل_استقرار { get; set; }
+        public string زمان_مناسب_انجام_کار { get; set; }
     }
 }

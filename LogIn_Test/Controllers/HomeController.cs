@@ -60,7 +60,8 @@ namespace LogIn_Test.Controllers
 
         public ActionResult AfterLogin()
         {
-            if(Session["LogedUserID"] != null)
+            ViewBag.LogedUser = Session["LogedUserFullname"];
+            if (Session["LogedUserID"] != null)
             {
                 var entities = new Models.PMEntities1();
                 return View(entities.PM_vw_InspectorView);
@@ -73,6 +74,11 @@ namespace LogIn_Test.Controllers
         }
 
         public ActionResult Check()
+        {
+            return View();
+        }
+
+        public ActionResult Submit(string id)
         {
             return View();
         }

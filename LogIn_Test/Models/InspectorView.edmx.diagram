@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="0ce331f3c5884674b55a0bdcadc36f13" Name="Diagram1">
-        <EntityTypeShape EntityType="PMModel1.PM_vw_InspectorView" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMModel1.PM_vw_InspectorView" Width="1.5" PointX="1.875" PointY="0.5" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
