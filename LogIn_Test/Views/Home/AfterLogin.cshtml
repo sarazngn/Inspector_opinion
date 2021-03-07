@@ -148,7 +148,7 @@
                 }
             }
 
-            if (array.length == 0) { notyf.error('برنامه ای برای ثبت نظر انتخاب نشده است'); }
+            if (array.length == 0) { notyf.error('برنامه ای جهت ثبت نظر انتخاب نشده است'); }
             else {//فراخوانی وب سرویس
                 //notyf.success(Description.value + " " + selectedOrderTypeVal + " " + array.length);
                 CallWebService();
@@ -159,7 +159,7 @@
         $.ajax({  
             type: "POST",  
             url: "https://localhost:44310/PM_Results/PM_InspectorOpenion/SavePMInspector",  
-            data: "{'Description':'selectedOrderTypeVal':'array'}",  
+            data: "{'array':'"+array+"','selectedOrderTypeVal':'"+selectedOrderTypeVal+"','Description':'"+Description.value+"'}",  
             contentType: "application/json",  
             datatype: "json",  
             success: function(responseFromServer) {  
