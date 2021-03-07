@@ -341,6 +341,7 @@
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Content\Themes\CardStyle.css" />
     <Content Include="Content\Themes\jquery.dataTables.min.css" />
+    <Content Include="Content\Themes\notyf.min.css" />
     <Content Include="Content\Themes\ui.multiselect.css" />
     <Content Include="Content\ui.jqgrid.css" />
     <Content Include="favicon.ico" />
@@ -369,6 +370,7 @@
     </Content>
     <Content Include="Content\Themes\responsive.dataTables.min.css" />
     <Content Include="Scripts\dataTables.responsive.min.js" />
+    <Content Include="Scripts\notyf.min.js" />
     <Content Include="Scripts\responsive\jquery-1.11.3.min.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
