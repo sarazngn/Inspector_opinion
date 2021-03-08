@@ -1,39 +1,25 @@
 ﻿@model LogIn_Test.User
 
 @{
-    ViewBag.Title = "Login";
+    Layout = null;
 }
 
-<html dir="rtl" style="font-family:IRANSans,garamond,serif;font-size:14px;">
+<html style="font-family:IRANSans,garamond,serif;font-size:14px;">
 
 <head>
 
-    <meta charset="UTF-8">
-
-    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
-    <meta name="apple-mobile-web-app-title" content="CodePen">
-
-    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
-
-    <link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
-
-
-    <title>CodePen - Login Form</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>صفحه ورود</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
-
-
     <style>
-
-
 body {
   min-height: 100vh;
-  font-family: "Raleway", sans-serif;
+  font-family: "Raleway",IRANSans;
 }
 
 .container {
-  position: absolute;
+  position: static;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -108,6 +94,7 @@ body {
   border: 1px solid #ccc;
   font-family: inherit;
 }
+
     </style>
 
     <script>
@@ -131,21 +118,19 @@ body {
         <div class="top"></div>
         <div class="bottom"></div>
         <div class="center">
-          @using (Html.BeginForm("Login", "Home", FormMethod.Post))
-          {
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true)
-            @Html.TextBoxFor(a => a.Username)
-            @Html.PasswordFor(a => a.Password)
-            <input type="submit" value="LogIn" onclick="location.href='@Url.Action("Home", "Login",FormMethod.Post)'" />
-          }
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.TextBoxFor(a => a.Username, new { style = "width: 350px;" })
+                @Html.PasswordFor(a => a.Password, new { style = "width: 350px;" })
+                <input type="submit" value="ورود" onclick="location.href='@Url.Action("Home", "Login",FormMethod.Post)' " style = "width: 350px;" />
+            }
 
         </div>
     </div>
 
     <script src='https://codepen.io/banik/pen/3f837b2f0085b5125112fc455941ea94.js'></script>
-
-
 
 </body>
 
