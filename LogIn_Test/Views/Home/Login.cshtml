@@ -122,9 +122,11 @@ body {
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true)
-                @Html.TextBoxFor(a => a.Username, new { style = "width: 350px;" })
-                @Html.PasswordFor(a => a.Password, new { style = "width: 350px;" })
-                <input type="submit" value="ورود" onclick="location.href='@Url.Action("Home", "Login",FormMethod.Post)' " style = "width: 350px;" />
+                @Html.Label("Title", "برنامه تعمیرات و نگهداری", new { style = "float:right;margin-right: 110px;font-size:20px; " })<br /><br /><br />
+                @Html.Label("Title2", "اعلام نظر بازرس", new { style = "float:right;margin-right: 150px;font-size:18px;" })<br /><br />
+                @Html.TextBoxFor(a => a.Username, new { style = "width: 300px;" })
+                @Html.PasswordFor(a => a.Password, new { style = "width: 300px;" })
+                <input type="submit" value="ورود" onclick="location.href='@Url.Action("Home", "Login",FormMethod.Post)' " style="width: 300px;" />
             }
 
         </div>
