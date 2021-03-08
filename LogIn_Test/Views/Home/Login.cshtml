@@ -4,136 +4,102 @@
     Layout = null;
 }
 
-<html style="font-family:IRANSans,garamond,serif;font-size:14px;">
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>صفحه ورود بازرس</title>
 
+    <link href="~/Content/Themes/LogIn_StyleSheet.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/Themes/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/Content/Themes/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/Themes/login.css">
     
-    <title>صفحه ورود</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-    <style>
-body {
-  min-height: 100vh;
-  font-family: "Raleway",IRANSans;
-}
-
-.container {
-  position: static;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-.container:hover .top:before, .container:hover .top:after, .container:hover .bottom:before, .container:hover .bottom:after, .container:active .top:before, .container:active .top:after, .container:active .bottom:before, .container:active .bottom:after {
-  margin-left: 200px;
-  transform-origin: -200px 50%;
-  transition-delay: 0s;
-}
-.container:hover .center, .container:active .center {
-  opacity: 1;
-  transition-delay: 0.2s;
-}
-
-.top:before, .top:after, .bottom:before, .bottom:after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 200vmax;
-  height: 200vmax;
-  top: 50%;
-  left: 50%;
-  margin-top: -100vmax;
-  transform-origin: 0 50%;
-  transition: all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
-  z-index: 10;
-  opacity: 0.65;
-  transition-delay: 0.2s;
-}
-
-.top:before {
-  transform: rotate(45deg);
-  background: #e46569;
-}
-.top:after {
-  transform: rotate(135deg);
-  background: #ecaf81;
-}
-
-.bottom:before {
-  transform: rotate(-45deg);
-  background: #60b8d4;
-}
-.bottom:after {
-  transform: rotate(-135deg);
-  background: #3745b5;
-}
-
-.center {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  top: 50%;
-  left: 50%;
-  margin-left: -200px;
-  margin-top: -200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  opacity: 0;
-  transition: all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
-  transition-delay: 0s;
-  color: #333;
-}
-.center input {
-  width: 100%;
-  padding: 15px;
-  margin: 5px;
-  border-radius: 1px;
-  border: 1px solid #ccc;
-  font-family: inherit;
-}
-
-    </style>
-
-    <script>
-        window.console = window.console || function (t) { };
-    </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-
-
-    <script>
-        if (document.location.search.match(/type=embed/gi)) {
-            window.parent.postMessage("resize", "*");
-        }
-    </script>
-
-
 </head>
+<body>
+    <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+        <div class="container">
+            <div class="card login-card">
+                <div class="row no-gutters">
+                    <div class="col-md-5">
+                        <img src="~/Content/Images/login.jpg" alt="login" class="login-card-img" >
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">                            
+                            <form action="#!">
+                                <div class="brand-wrapper">
+                                    <img src="~/Content/Images/navard-logo.svg" alt="logo" class="logo" style="width:50px;height:60px;">
+                                </div>
 
-<body translate="no">
-    <div class="container" onclick="onclick">
-        <div class="top"></div>
-        <div class="bottom"></div>
-        <div class="center">
-            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
-            {
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true)
-                @Html.Label("Title", "برنامه تعمیرات و نگهداری", new { style = "float:right;margin-right: 110px;font-size:20px; " })<br /><br /><br />
-                @Html.Label("Title2", "اعلام نظر بازرس", new { style = "float:right;margin-right: 150px;font-size:18px;" })<br /><br />
-                @Html.TextBoxFor(a => a.Username, new { style = "width: 300px;" })
-                @Html.PasswordFor(a => a.Password, new { style = "width: 300px;" })
-                <input type="submit" value="ورود" onclick="location.href='@Url.Action("Home", "Login",FormMethod.Post)' " style="width: 300px;" />
-            }
+                                <div class="form-group">
+                                    <h6 class="login-card-description">@Html.Label("Header1", "شرکت نورد و تولید قطعات فولادی", new { style = "font-family:B titr;font-size:18px;" })</h6>
+                                    <h6 class="login-card-description">@Html.Label("Header2", "برنامه تعمیرات و نگهداری- بازرس", new { style = "font-family:B titr;font-size:16px;" })</h6>
+                                </div>
 
+                                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true)
+                            <div class="form-group">
+                                @Html.TextBoxFor(a => a.Username)
+                                @Html.Label("OpinionLabel", "نام کاربری", new { style = "font-family:IRANSans,garamond,serif;font-size:14px;" })
+
+                                @Html.ValidationMessageFor(a => a.Username)
+                            </div>
+                            <div class="form-group mb-4">
+                                @Html.PasswordFor(a => a.Password)
+                                @Html.Label("OpinionLabel", "رمز عبور", new { style = "font-family:IRANSans,garamond,serif;font-size:14px;" })
+
+                            </div>
+                                    <input type="submit" value="ورود" onclick="location.href='@Url.Action("Home", "Login",FormMethod.Post)' " style="font-family:B titr;font-size:18px;width: 200px;" />
+                                }
+                            </form>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- <div class="card login-card">
+              <img src="assets/images/login.jpg" alt="login" class="login-card-img">
+              <div class="card-body">
+                <h2 class="login-card-title">Login</h2>
+                <p class="login-card-description">Sign in to your account to continue.</p>
+                <form action="#!">
+                  <div class="form-group">
+                    <label for="email" class="sr-only">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                  </div>
+                  <div class="form-prompt-wrapper">
+                    <div class="custom-control custom-checkbox login-card-check-box">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label" for="customCheck1">Remember me</label>
+                    </div>
+                    <a href="#!" class="text-reset">Forgot password?</a>
+                  </div>
+                  <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Login">
+                </form>
+                <p class="login-card-footer-text">Don't have an account? <a href="#!" class="text-reset">Register here</a></p>
+              </div>
+            </div> -->
         </div>
-    </div>
+    </main>
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
 
-    <script src='https://codepen.io/banik/pen/3f837b2f0085b5125112fc455941ea94.js'></script>
+    @section Scripts
+    {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
 
 </body>
-
 </html>
