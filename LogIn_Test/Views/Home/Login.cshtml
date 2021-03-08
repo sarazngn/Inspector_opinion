@@ -4,7 +4,7 @@
     Layout = null;
 }
 
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,9 +15,11 @@
     <link rel="stylesheet" href="~/Content/Themes/materialdesignicons.min.css">
     <link rel="stylesheet" href="~/Content/Themes/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/Themes/login.css">
-    
+   
 </head>
 <body>
+    
+
     <div class='ripple-background'>
         <div class='circle xxlarge shade1'></div>
         <div class='circle xlarge shade2'></div>
@@ -34,34 +36,31 @@
                     </div>
                     <div class="col-md-7">
                         <div class="card-body">
-                            <form action="#!">
-                                <div class="brand-wrapper">
-                                    <img src="~/Content/Images/navard-logo.svg" alt="logo" class="logo" style="width:50px;height:60px;">
-                                </div>
+                            <div class="brand-wrapper">
+                                <img src="~/Content/Images/navard-logo.svg" alt="logo" class="logo" style="width:50px;height:60px;">
+                            </div>
 
+                            <div class="form-group">
+                                <h6 class="login-card-description">@Html.Label("Header1", "شرکت نورد و تولید قطعات فولادی", new { style = "font-family:B titr;font-size:18px;" })</h6>
+                                <h6 class="login-card-description">@Html.Label("Header2", "برنامه تعمیرات و نگهداری- بازرس", new { style = "font-family:B titr;font-size:16px;" })</h6>
+                            </div>
+                            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true)
                                 <div class="form-group">
-                                    <h6 class="login-card-description">@Html.Label("Header1", "شرکت نورد و تولید قطعات فولادی", new { style = "font-family:B titr;font-size:18px;" })</h6>
-                                    <h6 class="login-card-description">@Html.Label("Header2", "برنامه تعمیرات و نگهداری- بازرس", new { style = "font-family:B titr;font-size:16px;" })</h6>
+                                    @Html.TextBoxFor(a => a.Username, new { style = "font-family:B titr;font-size:12px;" })
+                                    @Html.Label("OpinionLabel", "نام کاربری", new { style = "font-family:B titr;font-size:12px;" })
+
+                                    @Html.ValidationMessageFor(a => a.Username)
                                 </div>
+                                <div class="form-group mb-4">
+                                    @Html.PasswordFor(a => a.Password, new { style = "font-family:B titr;font-size:12px;" })
+                                    @Html.Label("OpinionLabel", "رمز عبور", new { style = "font-family:B titr;font-size:12px;" })
 
-                                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
-                                {
-                                    @Html.AntiForgeryToken()
-                                    @Html.ValidationSummary(true)
-                                    <div class="form-group">
-                                        @Html.TextBoxFor(a => a.Username)
-                                        @Html.Label("OpinionLabel", "نام کاربری", new { style = "font-family:IRANSans,garamond,serif;font-size:14px;" })
-
-                                        @Html.ValidationMessageFor(a => a.Username)
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        @Html.PasswordFor(a => a.Password)
-                                        @Html.Label("OpinionLabel", "رمز عبور", new { style = "font-family:IRANSans,garamond,serif;font-size:14px;" })
-
-                                    </div>
-                                    <input type="submit" value="ورود" onclick="location.href='@Url.Action("Home", "Login",FormMethod.Post)' " style="font-family:B titr;font-size:18px;width: 200px;" />
-                                }
-                            </form>
+                                </div>
+                                <input type="submit" value="ورود" onclick="location.href='@Url.Action("Home", "Login",FormMethod.Post)' " style="font-family:B titr;font-size:12px;width: 200px;" />
+                            }
 
 
                         </div>
