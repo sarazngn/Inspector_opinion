@@ -4,7 +4,7 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html dir="rtl" style = "font-family:IRANSans,garamond,serif;font-size:14px;">
+<html dir="rtl" class="form">
 
 <head>
     <link href="~/Content/Themes/AfterLogin_StyleSheet.css" rel="stylesheet">
@@ -19,9 +19,7 @@
     <script>
         window.console = window.console || function (t) { };
     </script>
-
-
-
+    
     <script>
         if (document.location.search.match(/type=embed/gi)) {
             window.parent.postMessage("resize", "*");
@@ -33,13 +31,13 @@
     <nav>
         <div class="logo"></div>
         <ul class="fw-body">
-            <li><a href='@Url.Action("Home", "Login",FormMethod.Post)' style="display:inline" >خروج</a></li>
+            <li><a href='@Url.Action("LogOut", "Home",FormMethod.Post)' style="display:inline" >خروج</a></li>
         </ul>
     </nav>
     <header>
         <div class="headline">
             <div class="inner">
-                <img src="~/Content/Images/navard-logo.svg" alt="logo" class="logo" style="width:50px;height:60px;">
+                <img src="~/Content/Images/navard-logo.svg" alt="logo" class="logo" style="width:50px;height:60px;"> 
                 <h6 class="login-card-description">@Html.Label("Header1", "شرکت نورد و تولید قطعات فولادی", new { style = "font-family:B titr;font-size:18px;" })</h6>
             </div>
         </div>
@@ -47,10 +45,7 @@
 
     <a name="top" id="top"></a>
     <div class="fw-background">
-        <div class="brand-wrapper">
-            <img src="~/Content/Images/navard-logo.svg" alt="logo" class="logo" style="width:50px;height:60px;">
-            <h6 class="login-card-description">@Html.Label("Header1", "شرکت نورد و تولید قطعات فولادی", new { style = "font-family:B titr;font-size:18px;" })</h6>
-        </div>
+        
         <br /><br />
         <fieldset class="fieldset">
             <legend class="legend">
@@ -170,10 +165,11 @@
         }
 
         function CallWebService() {
+            alert("Here");
             $.ajax({
                 type: "POST",
-                url: "https://localhost:44310/PM_Results/PM_InspectorOpenion/SavePMInspector",
-                data: "{'array':'" + array + "','selectedOrderTypeVal':'" + selectedOrderTypeVal + "','Description':'" + Description.value + "'}",
+                url: "https://localhost:44310/api/PMInspector/SavePMInspector",
+                data: "{'selectedOrderTypeVal': '0','Description':'تست از برنامه','UserName':'99042','array':[3312861]}",
                 contentType: "application/json",
                 datatype: "json",
                 success: function (responseFromServer) {
