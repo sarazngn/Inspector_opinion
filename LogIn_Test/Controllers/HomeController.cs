@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using UserManagement;
+using System.Web.Http.Cors;
 
 namespace LogIn_Test.Controllers
 {
@@ -59,6 +60,8 @@ namespace LogIn_Test.Controllers
             return View(u);
         }
 
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+
         public ActionResult AfterLogin()
         {
             ViewBag.LogedUser = Session["LogedUserFullname"];
@@ -90,5 +93,7 @@ namespace LogIn_Test.Controllers
             Session.Abandon(); // it will clear the session at the end of request
             return RedirectToAction("Login");
         }
+
+      
     }
 }

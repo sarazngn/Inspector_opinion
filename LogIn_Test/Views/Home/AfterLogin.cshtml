@@ -3,10 +3,25 @@
 @{
     Layout = null;
 }
+
+
+
+
 <!DOCTYPE html>
 <html dir="rtl" class="form">
 
 <head>
+
+    <system.webServer>
+        <httpProtocol>
+            <customHeaders>
+                <add name="Access-Control-Allow-Origin" value="*" />
+                <add name="Access-Control-Allow-Headers" value="Content-Type" />
+                <add name="Access-Control-Allow-Methods" value="GET, POST, PUT, DELETE, OPTIONS" />
+            </customHeaders>
+        </httpProtocol>
+    </system.webServer>
+
     <link href="~/Content/Themes/AfterLogin_StyleSheet.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="~/Content/Themes/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/Themes/responsive.dataTables.min.css">
@@ -19,25 +34,25 @@
     <script>
         window.console = window.console || function (t) { };
     </script>
-    
+
     <script>
         if (document.location.search.match(/type=embed/gi)) {
             window.parent.postMessage("resize", "*");
         }
     </script>
 </head>
-<body class="wide comments example">
+<body>
 
     <nav>
         <div class="logo"></div>
-        <ul class="fw-body">
-            <li><a href='@Url.Action("LogOut", "Home",FormMethod.Post)' style="display:inline" >خروج</a></li>
+        <ul>
+            <li><a href='@Url.Action("LogOut", "Home",FormMethod.Post)'>خروج</a></li>
         </ul>
     </nav>
     <header>
         <div class="headline">
             <div class="inner">
-                <img src="~/Content/Images/navard-logo.svg" alt="logo" class="logo" style="width:50px;height:60px;"> 
+                <img src="~/Content/Images/navard-logo.svg" alt="logo" class="logo" style="width:50px;height:60px;">
                 <h6 class="login-card-description">@Html.Label("Header1", "شرکت نورد و تولید قطعات فولادی", new { style = "font-family:B titr;font-size:18px;" })</h6>
             </div>
         </div>
@@ -45,7 +60,7 @@
 
     <a name="top" id="top"></a>
     <div class="fw-background">
-        
+
         <br /><br />
         <fieldset class="fieldset">
             <legend class="legend">
@@ -58,7 +73,7 @@
             @Html.RadioButton("Opinion", "0", new { style = "float:right" })
             @Html.Label("Desc", "توضیحات", new { style = "float:right;margin-top;margin-right: 50px;font-family:IRANSans;font-size:14px" })
             @Html.TextArea("Description", new { style = "float:right;margin-top;margin-left: 10px;width=1000px" })
-            <button type="submit" value="Delete" style="margin-left: 10px;font-family:IRANSans;font-size:14px" class="btn btn-sm btn-info rounded-0" onclick="GetSelected()"><i class="fa fa-trash-o"></i> ثبت</button>
+            <button type="submit" id="a" value="Delete" style="margin-left: 10px;font-family:IRANSans;font-size:14px" class="btn btn-sm btn-info rounded-0" onclick="GetSelected()"><i class="fa fa-trash-o"></i> ثبت</button>
             <br /><br />
         </fieldset>
 
@@ -165,17 +180,27 @@
         }
 
         function CallWebService() {
-            alert("Here");
+            
             $.ajax({
                 type: "POST",
+                CORS: true,
                 url: "https://localhost:44310/api/PMInspector/SavePMInspector",
-                data: "{'selectedOrderTypeVal': '0','Description':'تست از برنامه','UserName':'99042','array':[3312861]}",
-                contentType: "application/json",
+                headers: {'Access-Control-Allow-Origin': '*'},
+                data: "{'selectedOrderTypeVal': '0','Description':'تست','UserName':'99042','array':[3312861]}",
+                contentType: "application/json; charset=utf-8",
                 datatype: "json",
+                accept: 'application/json',
                 success: function (responseFromServer) {
                     alert(responseFromServer.d)
+                },
+
+                error: function (responseFromServer) {
+                    alert(responseFromServer.responseText);
+                },
+                failure: function (responseFromServer) {
+                    alert(responseFromServer.responseText);
                 }
-            });
+            }).done(console.log).fail();
         };
 
 
@@ -214,3 +239,5 @@
     @Html.Label("Loged In Date", "زمان ورود: ", new { style = "float:right;margin-right: 10px" })
     @DateTime.Now
 </footer>
+
+

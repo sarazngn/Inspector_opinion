@@ -14,7 +14,7 @@ body {
     font-size: 14px;
 }
 header {
-    background: #4682b4;
+    background:#ffffff;
 }
 
 .legend {
@@ -92,7 +92,7 @@ nav a:hover {
 }
 
 .logo {
-    src ="~/Content/Images/navard-logo.svg";
+
     height: 75px;
     float: left;
 }
@@ -105,11 +105,9 @@ nav a:hover {
   top: 25px;
 }
     .logo:before {
-        src ="~/Content/Images/navard-logo.svg";
         left: 20px;
     }
     .logo:after {
-        src ="~/Content/Images/navard-logo.svg";
         left: 34px;
     }
 
